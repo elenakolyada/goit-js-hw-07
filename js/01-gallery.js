@@ -1,5 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
+console.log(galleryItems);
 
 const galleryContainer = document.querySelector(".gallery");
 const cardsMarkup = createGalleryCardMarkup(galleryItems);
@@ -13,7 +14,7 @@ function createGalleryCardMarkup(galleryItems) {
     <img class= "gallery__image"
     src = "${preview}" 
     data-source = "${original}"
-    alt ="${description}" /> 
+    alt ="${description}"/> 
     </a>
     </div>`;
     })
@@ -27,17 +28,9 @@ function onGalleryContainerClick(event) {
   if (!isGalleryEl) {
     return;
   }
-}
-function onOpenModalWindow(e) {
-  instance = basicLightbox.create(`
-        <img src="${e.target.dataset.source}" width="800" height="600">
-    `);
+  const galleryOriginalImg = event.target.dataset.source;
+  const instance = basicLightbox.create(
+    `<img src="${galleryOriginalImg}" width ="800" height ="600">`
+  );
   instance.show();
 }
-//   const gallaryOriginalImg = event.target.dataset.source;
-//   const instance = basicLightbox.create(
-//     `<img src="${galleryOriginalImg}" width ="800" height ="600">`
-//   );
-//   instance.show();
-// }
-console.log(galleryItems);
