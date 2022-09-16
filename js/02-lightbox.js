@@ -10,7 +10,7 @@ galleryContainer.insertAdjacentHTML("beforeend", cardsMarkup);
 function createGalleryCardMarkup(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
-      return `<a class="gallery__item">
+      return `<a class="gallery__item" href="${original}">
     <img class= "gallery__image"
     src = "${preview}" 
      alt ="${description}"/> 
@@ -26,13 +26,14 @@ function onGalleryContainerClick(event) {
   if (!isGalleryEl) {
     return;
   }
-  // const galleryOriginalImg = event.target.dataset.source;
-  const lightbox = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionsDelay: 250,
-  });
+  const galleryOriginalImg = event.target.dataset.source;
+
   // const instance = basicLightbox.create(
   //   `<img src="${galleryOriginalImg}" width ="800" height ="600">`
   // );
   // instance.show();
+  const lightbox = new SimpleLightbox(".gallery a", {
+    captionsData: "alt",
+    captionDelay: 250,
+  });
 }
