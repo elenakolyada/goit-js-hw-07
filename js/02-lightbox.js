@@ -29,7 +29,6 @@ function onGalleryContainerClick(event) {
   const galleryOriginalImg = event.target.dataset.source;
 
   // const instance = basicLightbox.create(
-  //   `<img src="${galleryOriginalImg}" width ="800" height ="600">`
   // );
   // instance.show();
   const lightbox = new SimpleLightbox(".gallery a", {
